@@ -1,0 +1,5130 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "public-middleware",
+    "description": "public-middleware for bifrost and other services",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "bifrostSession"
+      },
+      "cookieAuthHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Cookie"
+      }
+    },
+    "schemas": {
+      "def-0": {
+        "type": "string",
+        "enum": [
+          "cardMember",
+          "preAuthorized",
+          "cardManagement",
+          "installmentPlan"
+        ],
+        "title": "contract-schema"
+      },
+      "def-1": {
+        "type": "string",
+        "enum": [
+          "earna-1",
+          "earna-2",
+          "earna-3"
+        ],
+        "title": "credit-cards-schema"
+      },
+      "def-2": {
+        "type": "string",
+        "enum": [
+          "AB",
+          "MB",
+          "ON",
+          "PE",
+          "QC",
+          "SK",
+          "BC",
+          "NB",
+          "NL",
+          "NT",
+          "NS",
+          "NU",
+          "YT"
+        ],
+        "title": "shared-schema-canadian-states"
+      },
+      "def-3": {
+        "type": "string",
+        "enum": [
+          "AF",
+          "AX",
+          "AL",
+          "DZ",
+          "AS",
+          "AD",
+          "AO",
+          "AI",
+          "AG",
+          "AR",
+          "AM",
+          "AW",
+          "AU",
+          "AT",
+          "AZ",
+          "BS",
+          "BH",
+          "BD",
+          "BB",
+          "BY",
+          "BE",
+          "BZ",
+          "BJ",
+          "BM",
+          "BT",
+          "BO",
+          "BQ",
+          "BA",
+          "BW",
+          "BR",
+          "IO",
+          "BN",
+          "BG",
+          "BF",
+          "BI",
+          "CV",
+          "KH",
+          "CM",
+          "KY",
+          "CF",
+          "TD",
+          "CL",
+          "CN",
+          "CX",
+          "CC",
+          "CO",
+          "KM",
+          "CD",
+          "CG",
+          "CK",
+          "CR",
+          "CI",
+          "HR",
+          "CU",
+          "CW",
+          "CY",
+          "CZ",
+          "DK",
+          "DJ",
+          "DM",
+          "DO",
+          "EC",
+          "EG",
+          "SV",
+          "GQ",
+          "ER",
+          "EE",
+          "SZ",
+          "ET",
+          "FK",
+          "FO",
+          "FJ",
+          "FI",
+          "FR",
+          "GF",
+          "PF",
+          "GA",
+          "GM",
+          "GE",
+          "DE",
+          "GH",
+          "GI",
+          "GR",
+          "GL",
+          "GD",
+          "GP",
+          "GU",
+          "GT",
+          "GG",
+          "GN",
+          "GW",
+          "GY",
+          "HT",
+          "VA",
+          "HN",
+          "HK",
+          "HU",
+          "IS",
+          "IN",
+          "ID",
+          "IR",
+          "IQ",
+          "IE",
+          "IM",
+          "IL",
+          "IT",
+          "JM",
+          "JP",
+          "JE",
+          "JO",
+          "KZ",
+          "KE",
+          "KI",
+          "KP",
+          "KR",
+          "KW",
+          "KG",
+          "LA",
+          "LV",
+          "LB",
+          "LS",
+          "LR",
+          "LY",
+          "LI",
+          "LT",
+          "LU",
+          "MO",
+          "MK",
+          "MG",
+          "MW",
+          "MY",
+          "MV",
+          "ML",
+          "MT",
+          "MH",
+          "MQ",
+          "MR",
+          "MU",
+          "YT",
+          "MX",
+          "FM",
+          "MD",
+          "MC",
+          "MN",
+          "ME",
+          "MS",
+          "MA",
+          "MZ",
+          "MM",
+          "NA",
+          "NR",
+          "NP",
+          "NL",
+          "NC",
+          "NZ",
+          "NI",
+          "NE",
+          "NG",
+          "NU",
+          "NF",
+          "MP",
+          "NO",
+          "OM",
+          "PK",
+          "PW",
+          "PS",
+          "PA",
+          "PG",
+          "PY",
+          "PE",
+          "PH",
+          "PN",
+          "PL",
+          "PT",
+          "PR",
+          "QA",
+          "RE",
+          "RO",
+          "RU",
+          "RW",
+          "BL",
+          "SH",
+          "KN",
+          "LC",
+          "MF",
+          "PM",
+          "VC",
+          "WS",
+          "SM",
+          "ST",
+          "SA",
+          "SN",
+          "RS",
+          "SC",
+          "SL",
+          "SG",
+          "SX",
+          "SK",
+          "SI",
+          "SB",
+          "SO",
+          "ZA",
+          "GS",
+          "SS",
+          "ES",
+          "LK",
+          "SD",
+          "SR",
+          "SJ",
+          "SE",
+          "CH",
+          "SY",
+          "TW",
+          "TJ",
+          "TZ",
+          "TH",
+          "TL",
+          "TG",
+          "TK",
+          "TO",
+          "TT",
+          "TN",
+          "TR",
+          "TM",
+          "TC",
+          "TV",
+          "UG",
+          "UA",
+          "AE",
+          "GB",
+          "US",
+          "UM",
+          "UY",
+          "UZ",
+          "VU",
+          "VE",
+          "VN",
+          "VG",
+          "VI",
+          "WF",
+          "EH",
+          "YE",
+          "ZM",
+          "ZW"
+        ],
+        "title": "shared-schema-other-countries"
+      },
+      "def-4": {
+        "type": "object",
+        "properties": {
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          }
+        },
+        "title": "shared-schema-application-credit-card"
+      },
+      "def-5": {
+        "type": "object",
+        "properties": {
+          "countryId": {
+            "type": "string",
+            "enum": [
+              "CA"
+            ]
+          },
+          "civicNumber": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "apt": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/def-2"
+          },
+          "zip": {
+            "type": "string",
+            "pattern": "^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ ]{1}?\\d[ABCEGHJ-NPRSTV-Z]\\d$"
+          }
+        },
+        "required": [
+          "countryId",
+          "civicNumber",
+          "street",
+          "city",
+          "state",
+          "zip"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-home-address"
+      },
+      "def-6": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "countryId": {
+                "$ref": "#/components/schemas/def-3"
+              },
+              "fullAddress": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fullAddress",
+              "countryId",
+              "city",
+              "zip"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "countryId": {
+                "type": "string",
+                "enum": [
+                  "CA"
+                ]
+              },
+              "civicNumber": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string"
+              },
+              "apt": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "$ref": "#/components/schemas/def-2"
+              },
+              "zip": {
+                "type": "string",
+                "pattern": "^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ ]{1}?\\d[ABCEGHJ-NPRSTV-Z]\\d$"
+              }
+            },
+            "required": [
+              "countryId",
+              "civicNumber",
+              "street",
+              "city",
+              "state",
+              "zip"
+            ],
+            "additionalProperties": false
+          }
+        ],
+        "title": "shared-schema-previous-home-address"
+      },
+      "def-7": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "countryId": {
+                "$ref": "#/components/schemas/def-3"
+              },
+              "fullAddress": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fullAddress",
+              "countryId",
+              "city",
+              "zip"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "countryId": {
+                "type": "string",
+                "enum": [
+                  "CA"
+                ]
+              },
+              "civicNumber": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string"
+              },
+              "apt": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "state": {
+                "$ref": "#/components/schemas/def-2"
+              },
+              "zip": {
+                "type": "string",
+                "pattern": "^[ABCEGHJ-NPRSTVXY]\\d[ABCEGHJ-NPRSTV-Z][ ]{1}?\\d[ABCEGHJ-NPRSTV-Z]\\d$"
+              }
+            },
+            "required": [
+              "countryId",
+              "civicNumber",
+              "street",
+              "city",
+              "state",
+              "zip"
+            ],
+            "additionalProperties": false
+          }
+        ],
+        "title": "shared-schema-job-address"
+      },
+      "def-8": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "enum": [
+              "mr",
+              "ms",
+              "miss",
+              "other"
+            ]
+          },
+          "firstName": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 75,
+            "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+          },
+          "middleName": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 75,
+            "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+          },
+          "lastName": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 75,
+            "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+          },
+          "sin": {
+            "type": "string",
+            "pattern": "^[0-9]{9}$"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "title",
+          "firstName",
+          "lastName",
+          "sin",
+          "dateOfBirth"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-identification"
+      },
+      "def-9": {
+        "type": "object",
+        "properties": {
+          "maritalStatus": {
+            "type": "string",
+            "enum": [
+              "single",
+              "married",
+              "living-together",
+              "divorced",
+              "widowed",
+              "common-law"
+            ]
+          },
+          "numberOfDependents": {
+            "type": "string",
+            "enum": [
+              "zero",
+              "one",
+              "two",
+              "three",
+              "four",
+              "five-or-more"
+            ]
+          },
+          "levelOfEducation": {
+            "type": "string",
+            "enum": [
+              "no-high-school",
+              "high-school",
+              "college",
+              "bachelor",
+              "master",
+              "ph"
+            ]
+          }
+        },
+        "required": [
+          "maritalStatus",
+          "numberOfDependents",
+          "levelOfEducation"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-personal-information"
+      },
+      "def-10": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "family"
+                ]
+              },
+              "phoneNumber": {
+                "type": "string",
+                "pattern": "^\\+1\\d{10}$"
+              },
+              "relationToYou": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 75,
+                "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+              },
+              "familyFirstName": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 75,
+                "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+              },
+              "familyLastName": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 75,
+                "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "phoneNumber",
+              "relationToYou",
+              "familyFirstName",
+              "familyLastName"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "friend"
+                ]
+              },
+              "phoneNumber": {
+                "type": "string",
+                "pattern": "^\\+1\\d{10}$"
+              },
+              "friendFirstName": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 75,
+                "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+              },
+              "friendLastName": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 75,
+                "pattern": "^[\\s\\p{Script=Latin}‘’'-]+$"
+              }
+            },
+            "required": [
+              "type",
+              "phoneNumber",
+              "friendFirstName",
+              "friendLastName"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "home"
+                ]
+              },
+              "phoneNumber": {
+                "type": "string",
+                "pattern": "^\\+1\\d{10}$"
+              }
+            },
+            "required": [
+              "type",
+              "phoneNumber"
+            ],
+            "additionalProperties": false
+          }
+        ],
+        "title": "shared-schema-additional-phone"
+      },
+      "def-11": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "homeOwnershipStatus": {
+                "type": "string",
+                "enum": [
+                  "own"
+                ]
+              },
+              "residentialDuration": {
+                "type": "string",
+                "enum": [
+                  "six-months-or-less",
+                  "seven-twelve-months"
+                ]
+              },
+              "homeAddress": {
+                "$ref": "#/components/schemas/def-5"
+              },
+              "monthlyRentOrMortgageCost": {
+                "type": "number",
+                "minimum": 0
+              },
+              "mortgageStatus": {
+                "type": "string",
+                "enum": [
+                  "with",
+                  "without"
+                ]
+              },
+              "previousHomeAddress": {
+                "$ref": "#/components/schemas/def-6"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "homeAddress",
+              "homeOwnershipStatus",
+              "monthlyRentOrMortgageCost",
+              "residentialDuration",
+              "mortgageStatus",
+              "previousHomeAddress"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "homeOwnershipStatus": {
+                "type": "string",
+                "enum": [
+                  "own"
+                ]
+              },
+              "residentialDuration": {
+                "type": "string",
+                "enum": [
+                  "one-two-years",
+                  "three-five-years",
+                  "six-years-or-more"
+                ]
+              },
+              "homeAddress": {
+                "$ref": "#/components/schemas/def-5"
+              },
+              "monthlyRentOrMortgageCost": {
+                "type": "number",
+                "minimum": 0
+              },
+              "mortgageStatus": {
+                "type": "string",
+                "enum": [
+                  "with",
+                  "without"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "homeAddress",
+              "homeOwnershipStatus",
+              "monthlyRentOrMortgageCost",
+              "residentialDuration",
+              "mortgageStatus"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "homeOwnershipStatus": {
+                "type": "string",
+                "enum": [
+                  "rent",
+                  "living-family",
+                  "living-roomates",
+                  "owned-by-spouse",
+                  "social-housing"
+                ]
+              },
+              "residentialDuration": {
+                "type": "string",
+                "enum": [
+                  "six-months-or-less",
+                  "seven-twelve-months"
+                ]
+              },
+              "homeAddress": {
+                "$ref": "#/components/schemas/def-5"
+              },
+              "monthlyRentOrMortgageCost": {
+                "type": "number",
+                "minimum": 0
+              },
+              "previousHomeAddress": {
+                "$ref": "#/components/schemas/def-6"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "homeAddress",
+              "homeOwnershipStatus",
+              "monthlyRentOrMortgageCost",
+              "residentialDuration",
+              "previousHomeAddress"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "homeOwnershipStatus": {
+                "type": "string",
+                "enum": [
+                  "rent",
+                  "living-family",
+                  "living-roomates",
+                  "owned-by-spouse",
+                  "social-housing"
+                ]
+              },
+              "residentialDuration": {
+                "type": "string",
+                "enum": [
+                  "one-two-years",
+                  "three-five-years",
+                  "six-years-or-more"
+                ]
+              },
+              "homeAddress": {
+                "$ref": "#/components/schemas/def-5"
+              },
+              "monthlyRentOrMortgageCost": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "homeAddress",
+              "homeOwnershipStatus",
+              "monthlyRentOrMortgageCost",
+              "residentialDuration"
+            ]
+          }
+        ],
+        "title": "shared-schema-residential-details"
+      },
+      "def-12": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "employmentStatus": {
+                "type": "string",
+                "enum": [
+                  "parent-allowance",
+                  "employment-insurance",
+                  "worker-compensation"
+                ]
+              },
+              "claimStartDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "claimEndDate": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "employmentStatus",
+              "claimStartDate",
+              "claimEndDate"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "employmentStatus": {
+                "type": "string",
+                "enum": [
+                  "company-pension",
+                  "private-insurance"
+                ]
+              },
+              "timeReceivingRevenue": {
+                "type": "string",
+                "enum": [
+                  "three-months-or-less",
+                  "four-six-months",
+                  "seven-twelve-months",
+                  "one-two-years",
+                  "three-five-years",
+                  "six-years-or-more"
+                ]
+              },
+              "organizationName": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 125,
+                "pattern": "^[\\s\\p{Script=Latin}0-9‘’'-]+$"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "employmentStatus",
+              "timeReceivingRevenue",
+              "organizationName"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "employmentStatus": {
+                "type": "string",
+                "enum": [
+                  "armed-forces",
+                  "full-time",
+                  "on-contract",
+                  "part-time",
+                  "seasonal",
+                  "self-employed"
+                ]
+              },
+              "organizationName": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 125,
+                "pattern": "^[\\s\\p{Script=Latin}0-9‘’'-]+$"
+              },
+              "jobTitle": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 125,
+                "pattern": "^[\\s\\p{Script=Latin}0-9‘’'-]+$"
+              },
+              "companyPhoneNumber": {
+                "type": "string"
+              },
+              "timeSpentAtAJob": {
+                "type": "string",
+                "enum": [
+                  "three-months-or-less",
+                  "four-six-months",
+                  "seven-twelve-months",
+                  "one-two-years",
+                  "three-five-years",
+                  "six-years-or-more"
+                ]
+              },
+              "employmentAddress": {
+                "$ref": "#/components/schemas/def-7"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "employmentStatus",
+              "organizationName",
+              "jobTitle",
+              "companyPhoneNumber",
+              "timeSpentAtAJob",
+              "employmentAddress"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "employmentStatus": {
+                "type": "string",
+                "enum": [
+                  "canada-pension",
+                  "old-age-pension",
+                  "child-tax-benefit",
+                  "social-assistance",
+                  "veterans-pension"
+                ]
+              },
+              "timeReceivingRevenue": {
+                "type": "string",
+                "enum": [
+                  "three-months-or-less",
+                  "four-six-months",
+                  "seven-twelve-months",
+                  "one-two-years",
+                  "three-five-years",
+                  "six-years-or-more"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "employmentStatus",
+              "timeReceivingRevenue"
+            ]
+          }
+        ],
+        "title": "shared-schema-employment-details"
+      },
+      "def-13": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "additionalIncome": {
+                "type": "string",
+                "enum": [
+                  "dividends",
+                  "alimony",
+                  "child-tax-benefit",
+                  "parent-allowance",
+                  "employment-insurance",
+                  "on-contract",
+                  "part-time",
+                  "seasonal",
+                  "canada-pension",
+                  "old-age-pension",
+                  "social-assistance",
+                  "veterans-pension",
+                  "worker-compensation",
+                  "private-insurance",
+                  "company-pension",
+                  "armed-forces",
+                  "self-employed"
+                ]
+              },
+              "howGetPaid": {
+                "type": "string",
+                "enum": [
+                  "transfer",
+                  "check",
+                  "cash",
+                  "deposit"
+                ]
+              },
+              "howOftenPaid": {
+                "type": "string",
+                "enum": [
+                  "weekly",
+                  "bi-weekly",
+                  "bi-monthly",
+                  "monthly",
+                  "last-day-month",
+                  "social-schedule"
+                ]
+              },
+              "lastNetPayAmount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "hasJointBankAccount": {
+                "type": "string",
+                "enum": [
+                  "yes",
+                  "no"
+                ]
+              },
+              "lastPayDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "nextPayDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "additionalIncomeAmount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "additionalIncomeFrequency": {
+                "type": "string",
+                "enum": [
+                  "weekly",
+                  "bi-weekly",
+                  "bi-monthly",
+                  "monthly",
+                  "last-day-month",
+                  "social-schedule"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "additionalIncome",
+              "howGetPaid",
+              "lastNetPayAmount",
+              "hasJointBankAccount",
+              "additionalIncomeAmount",
+              "additionalIncomeFrequency"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "additionalIncome": {
+                "type": "string",
+                "enum": [
+                  "no-additional"
+                ]
+              },
+              "howGetPaid": {
+                "type": "string",
+                "enum": [
+                  "transfer",
+                  "check",
+                  "cash",
+                  "deposit"
+                ]
+              },
+              "howOftenPaid": {
+                "type": "string",
+                "enum": [
+                  "weekly",
+                  "bi-weekly",
+                  "bi-monthly",
+                  "monthly",
+                  "last-day-month",
+                  "social-schedule"
+                ]
+              },
+              "lastNetPayAmount": {
+                "type": "number",
+                "minimum": 0
+              },
+              "hasJointBankAccount": {
+                "type": "string",
+                "enum": [
+                  "yes",
+                  "no"
+                ]
+              },
+              "lastPayDate": {
+                "type": "string",
+                "format": "date"
+              },
+              "nextPayDate": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "howGetPaid",
+              "lastNetPayAmount",
+              "hasJointBankAccount",
+              "additionalIncome"
+            ]
+          }
+        ],
+        "title": "shared-schema-income-details"
+      },
+      "def-14": {
+        "anyOf": [
+          {
+            "type": "object",
+            "properties": {
+              "hasSavings": {
+                "type": "boolean",
+                "enum": [
+                  true
+                ]
+              },
+              "hasInvestments": {
+                "type": "boolean",
+                "enum": [
+                  true
+                ]
+              },
+              "savings": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "cash-account",
+                    "rrsp",
+                    "tfsa",
+                    "fhsa",
+                    "resp",
+                    "lira",
+                    "rrif"
+                  ]
+                }
+              },
+              "savingsAmount": {
+                "type": "string",
+                "enum": [
+                  "less-than-hundred",
+                  "hundred-thousand",
+                  "one-five-thousand",
+                  "five-thousand-or-more"
+                ]
+              },
+              "investments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "stockes-etfs",
+                    "crypto",
+                    "asset-management",
+                    "alternative-investements",
+                    "mutual-funds",
+                    "other"
+                  ]
+                }
+              },
+              "investmentsAmount": {
+                "type": "string",
+                "enum": [
+                  "less-than-hundred",
+                  "hundred-thousand",
+                  "one-five-thousand",
+                  "five-thousand-or-more"
+                ]
+              },
+              "isAgreePersonalInfos": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "hasSavings",
+              "savingsAmount",
+              "savings",
+              "hasInvestments",
+              "investmentsAmount",
+              "investments",
+              "isAgreePersonalInfos"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "hasSavings": {
+                "type": "boolean",
+                "enum": [
+                  true
+                ]
+              },
+              "hasInvestments": {
+                "type": "boolean",
+                "enum": [
+                  false
+                ]
+              },
+              "savings": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "cash-account",
+                    "rrsp",
+                    "tfsa",
+                    "fhsa",
+                    "resp",
+                    "lira",
+                    "rrif"
+                  ]
+                }
+              },
+              "savingsAmount": {
+                "type": "string",
+                "enum": [
+                  "less-than-hundred",
+                  "hundred-thousand",
+                  "one-five-thousand",
+                  "five-thousand-or-more"
+                ]
+              },
+              "isAgreePersonalInfos": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "hasSavings",
+              "savings",
+              "savingsAmount",
+              "hasInvestments",
+              "isAgreePersonalInfos"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "hasSavings": {
+                "type": "boolean",
+                "enum": [
+                  false
+                ]
+              },
+              "hasInvestments": {
+                "type": "boolean",
+                "enum": [
+                  true
+                ]
+              },
+              "investments": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "stockes-etfs",
+                    "crypto",
+                    "asset-management",
+                    "alternative-investements",
+                    "mutual-funds",
+                    "other"
+                  ]
+                }
+              },
+              "investmentsAmount": {
+                "type": "string",
+                "enum": [
+                  "less-than-hundred",
+                  "hundred-thousand",
+                  "one-five-thousand",
+                  "five-thousand-or-more"
+                ]
+              },
+              "isAgreePersonalInfos": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "hasSavings",
+              "hasInvestments",
+              "investments",
+              "investmentsAmount",
+              "isAgreePersonalInfos"
+            ]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "hasSavings": {
+                "type": "boolean",
+                "enum": [
+                  false
+                ]
+              },
+              "hasInvestments": {
+                "type": "boolean",
+                "enum": [
+                  false
+                ]
+              },
+              "isAgreePersonalInfos": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "hasSavings",
+              "hasInvestments",
+              "isAgreePersonalInfos"
+            ]
+          }
+        ],
+        "title": "shared-schema-savings-and-investments"
+      },
+      "def-15": {
+        "type": "object",
+        "properties": {
+          "currentSessionId": {
+            "type": "string"
+          },
+          "sessionsHistory": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "failed",
+                    "started",
+                    "waitingForFlinksWebhook",
+                    "waitingForPlaidWebhook",
+                    "successFlinks",
+                    "successPlaid"
+                  ]
+                },
+                "failedReason": {
+                  "type": "string",
+                  "enum": [
+                    "AGGREGATOR_FAILED",
+                    "BANK_NOT_FOUND"
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "state"
+              ]
+            }
+          }
+        },
+        "required": [
+          "sessionsHistory"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-banking-session"
+      },
+      "def-16": {
+        "type": "string",
+        "enum": [
+          "proofOfAddress",
+          "proofOfIdentity",
+          "voidCheck",
+          "proofOfOverdraft",
+          "proofOfOwnership"
+        ],
+        "title": "document-requested-schema"
+      },
+      "def-17": {
+        "type": "object",
+        "properties": {
+          "uploaded": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "filename": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "type": {
+                  "$ref": "#/components/schemas/def-16"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "scanner-verifying",
+                    "scanner-declined",
+                    "idle",
+                    "approved",
+                    "declined"
+                  ],
+                  "default": "idle"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "uuid",
+                "type",
+                "status",
+                "createdAt",
+                "updatedAt",
+                "filename"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/def-16"
+            }
+          }
+        },
+        "required": [
+          "uploaded",
+          "required"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-documents-requested"
+      },
+      "def-18": {
+        "type": "object",
+        "properties": {
+          "eligibleProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/def-1"
+            }
+          },
+          "expiredDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "productSelected": {
+            "$ref": "#/components/schemas/def-1"
+          }
+        },
+        "required": [
+          "eligibleProducts",
+          "expiredDate"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-product-confirmation"
+      },
+      "def-19": {
+        "type": "object",
+        "properties": {
+          "eligibleProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/def-1"
+            }
+          },
+          "expiredDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "productSelected": {
+            "$ref": "#/components/schemas/def-1"
+          }
+        },
+        "required": [
+          "eligibleProducts",
+          "expiredDate",
+          "productSelected"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-product-confirmation-completed"
+      },
+      "def-20": {
+        "type": "object",
+        "properties": {
+          "contracts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/def-0"
+                },
+                "agree": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "contracts"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-contract-signature"
+      },
+      "def-21": {
+        "type": "object",
+        "properties": {
+          "contracts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "$ref": "#/components/schemas/def-0"
+                },
+                "agree": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "type",
+                "agree"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "contracts"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-contract-signature-completed"
+      },
+      "def-22": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "APPLICATION_MINIMUM_AGE_REQUIRED",
+              "NEW_APPLICATION_CREATED"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-cancel-reason"
+      },
+      "def-23": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "FRAUD_RISK",
+              "NO_PAYROLL",
+              "ID_VERIFICATION_FAILED"
+            ]
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-decline-reason"
+      },
+      "def-24": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingIdentification"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-identification"
+      },
+      "def-25": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingPersonalInfo"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-personal-info"
+      },
+      "def-26": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingAdditionalPhone"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-additional-phone"
+      },
+      "def-27": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingResidentialDetails"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-residential-details"
+      },
+      "def-28": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingEmploymentDetails"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-employment-details"
+      },
+      "def-29": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingIncomeDetails"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-income-details"
+      },
+      "def-30": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingSavingsAndInvestments"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-savings-and-investments"
+      },
+      "def-31": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingBanking"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-banking"
+      },
+      "def-32": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingBankingAggregation"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-banking-aggregation"
+      },
+      "def-33": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingCreditReport"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-credit-report"
+      },
+      "def-34": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingAutomatedUnderwriting"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-automated-underwriting"
+      },
+      "def-35": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingManualDocumentUpload"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession",
+          "documentsRequested"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-manual-document-upload-review"
+      },
+      "def-36": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingManualReview"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession",
+          "documentsRequested"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-manual-review"
+      },
+      "def-37": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingProductConfirmation"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession",
+          "productConfirmation",
+          "contractSignature"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-product-confirmation"
+      },
+      "def-38": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendingContractSignature"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-19"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession",
+          "productConfirmation",
+          "contractSignature"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-pending-contract-signature"
+      },
+      "def-39": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "completed"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-19"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-21"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession",
+          "productConfirmation",
+          "contractSignature"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-completed"
+      },
+      "def-40": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "cancelled"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "cancelReason"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-cancelled"
+      },
+      "def-41": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "expired"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-expired"
+      },
+      "def-42": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "creditCard": {
+            "$ref": "#/components/schemas/def-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "declined"
+            ]
+          },
+          "identification": {
+            "$ref": "#/components/schemas/def-8"
+          },
+          "personalInformation": {
+            "$ref": "#/components/schemas/def-9"
+          },
+          "additionalPhone": {
+            "$ref": "#/components/schemas/def-10"
+          },
+          "residentialDetails": {
+            "$ref": "#/components/schemas/def-11"
+          },
+          "employmentDetails": {
+            "$ref": "#/components/schemas/def-12"
+          },
+          "incomeDetails": {
+            "$ref": "#/components/schemas/def-13"
+          },
+          "savingsAndInvestments": {
+            "$ref": "#/components/schemas/def-14"
+          },
+          "bankingSession": {
+            "$ref": "#/components/schemas/def-15"
+          },
+          "productConfirmation": {
+            "$ref": "#/components/schemas/def-18"
+          },
+          "contractSignature": {
+            "$ref": "#/components/schemas/def-20"
+          },
+          "cancelReason": {
+            "$ref": "#/components/schemas/def-22"
+          },
+          "documentsRequested": {
+            "$ref": "#/components/schemas/def-17"
+          },
+          "declineReason": {
+            "$ref": "#/components/schemas/def-23"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "creditCard",
+          "declineReason",
+          "identification",
+          "personalInformation",
+          "additionalPhone",
+          "residentialDetails",
+          "employmentDetails",
+          "incomeDetails",
+          "savingsAndInvestments",
+          "bankingSession"
+        ],
+        "additionalProperties": false,
+        "title": "shared-schema-declined"
+      },
+      "def-43": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "OVERFLOW_COMMAND_QUEUE_ERROR",
+              "APPLICATION_USER_IS_NOT_AN_ADULT",
+              "APPLICATION_UPDATE_ERROR",
+              "INVALID_APPLICATION_STATE_TRANSITION_ERROR",
+              "INVALID_APPLICATION_BAD_REQUEST_ERROR",
+              "APPLICATION_SIN_ALREADY_USED",
+              "APPLICATION_CONTRACT_EXPIRED"
+            ]
+          },
+          "statusCode": {
+            "type": "number"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "statusCode",
+          "error",
+          "message",
+          "code"
+        ],
+        "title": "shared-schema-application-error"
+      },
+      "def-44": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "APPLICATION_NOT_FOUND"
+            ]
+          },
+          "statusCode": {
+            "type": "number"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "statusCode",
+          "error",
+          "message",
+          "code"
+        ],
+        "title": "shared-schema-application-not-found-error"
+      }
+    }
+  },
+  "paths": {
+    "/banking-session": {
+      "post": {
+        "tags": [
+          "Banking Session"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "platform": {
+                    "type": "string",
+                    "enum": [
+                      "web",
+                      "iOS",
+                      "android"
+                    ]
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "platform"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "plaidLinkToken": {
+                      "type": "string"
+                    },
+                    "flinksTag": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "plaidLinkToken",
+                    "flinksTag"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banking-session/{bankingSessionId}/events": {
+      "post": {
+        "tags": [
+          "Banking Session"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "aggregator": {
+                    "type": "string",
+                    "enum": [
+                      "plaid",
+                      "flinks"
+                    ]
+                  },
+                  "data": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": true
+                        }
+                      }
+                    ]
+                  },
+                  "generatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "aggregator",
+                  "data",
+                  "generatedAt"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "bankingSessionId",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/banking-session/{bankingSessionId}/successful-login": {
+      "post": {
+        "tags": [
+          "Banking Session"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "aggregator": {
+                        "type": "string",
+                        "enum": [
+                          "flinks"
+                        ]
+                      },
+                      "payload": {
+                        "type": "object",
+                        "properties": {
+                          "requestId": {
+                            "type": "string"
+                          },
+                          "institutionId": {
+                            "type": "string"
+                          },
+                          "loginId": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "requestId",
+                          "institutionId",
+                          "loginId"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "aggregator",
+                      "payload"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "aggregator": {
+                        "type": "string",
+                        "enum": [
+                          "plaid"
+                        ]
+                      },
+                      "payload": {
+                        "type": "object",
+                        "properties": {
+                          "linkSessionId": {
+                            "type": "string"
+                          },
+                          "institutionId": {
+                            "type": "string"
+                          },
+                          "publicToken": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "linkSessionId",
+                          "institutionId",
+                          "publicToken"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "aggregator",
+                      "payload"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "bankingSessionId",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/session/": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session/revoke": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "session": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "session"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/session/refresh": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "session": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "session"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/": {
+      "get": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/def-24"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-25"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-26"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-27"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-28"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-29"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-30"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-31"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-32"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-33"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-34"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-35"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-36"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-37"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-38"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-39"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-40"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-41"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-42"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/create-or-resume": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "creditCard": {
+                    "$ref": "#/components/schemas/def-1"
+                  }
+                },
+                "required": [
+                  "creditCard"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/def-24"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-25"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-26"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-27"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-28"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-29"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-30"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-31"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-32"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-33"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-34"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-35"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-36"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-37"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-38"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-39"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-40"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-41"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-42"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-24"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/credit-card": {
+      "put": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "creditCard": {
+                    "$ref": "#/components/schemas/def-1"
+                  }
+                },
+                "required": [
+                  "creditCard"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/def-24"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-25"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-26"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-27"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-28"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-29"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-30"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-31"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-32"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-33"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-34"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-35"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-36"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-37"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-38"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-39"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-40"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-41"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-42"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/identification": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-8"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-25"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/personal-information": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-9"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-26"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/additional-phone": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-10"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-27"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/residential-details": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-11"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-28"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/employment-details": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-12"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-29"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/income-details": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-13"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-30"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/saving-investments": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/def-14"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/def-31"
+                    },
+                    {
+                      "$ref": "#/components/schemas/def-40"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/banking-session-successful-login": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/document": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-16"
+            },
+            "in": "query",
+            "name": "documentType",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-35"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/document/{documentId}": {
+      "delete": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "documentId",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-35"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "name": "documentId",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/application/manual-review": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-36"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/reset-banking": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-31"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/confirm-product": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productSelected": {
+                    "$ref": "#/components/schemas/def-1"
+                  }
+                },
+                "required": [
+                  "productSelected"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-38"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/sign": {
+      "post": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signature": {
+                    "type": "string"
+                  },
+                  "locale": {
+                    "type": "string",
+                    "enum": [
+                      "en-CA",
+                      "fr-CA"
+                    ],
+                    "default": "en-CA"
+                  },
+                  "contracts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "$ref": "#/components/schemas/def-0"
+                        },
+                        "agree": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "agree"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "signature",
+                  "contracts"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-39"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-43"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/def-44"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/banking-institution/": {
+      "get": {
+        "tags": [
+          "Banking Institution"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 1
+            },
+            "in": "query",
+            "name": "page",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 1
+            },
+            "in": "query",
+            "name": "pageSize",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "number"
+                    },
+                    "institutions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "aggregator": {
+                            "type": "string",
+                            "enum": [
+                              "flinks",
+                              "plaid"
+                            ]
+                          },
+                          "nameEn": {
+                            "type": "string"
+                          },
+                          "nameFr": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "searchKeys": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "logo": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "popularity": {
+                            "type": "number",
+                            "default": 0
+                          },
+                          "bgColor": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "aggregator",
+                          "nameEn",
+                          "nameFr",
+                          "searchKeys",
+                          "logo",
+                          "popularity",
+                          "bgColor"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "institutions"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/info": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "email"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/application/contract/{contractType}/preview/html": {
+      "get": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en-CA",
+                "fr-CA"
+              ],
+              "default": "en-CA"
+            },
+            "in": "query",
+            "name": "locale",
+            "required": false
+          },
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-0"
+            },
+            "in": "path",
+            "name": "contractType",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/application/contract/{contractType}/preview/pdf": {
+      "get": {
+        "tags": [
+          "Application Process State Machine"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en-CA",
+                "fr-CA"
+              ],
+              "default": "en-CA"
+            },
+            "in": "query",
+            "name": "locale",
+            "required": false
+          },
+          {
+            "schema": {
+              "$ref": "#/components/schemas/def-0"
+            },
+            "in": "path",
+            "name": "contractType",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/user/auth/custom-token": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customToken": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "customToken"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/webhooks/flinks/accounts-detail": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ResponseType": {
+                    "type": "string"
+                  },
+                  "HttpStatusCode": {
+                    "type": "integer"
+                  },
+                  "Accounts": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "Transactions": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "Date": {
+                                "type": "string",
+                                "format": "date"
+                              },
+                              "Code": {
+                                "type": "string",
+                                "nullable": true
+                              },
+                              "Description": {
+                                "type": "string"
+                              },
+                              "Debit": {
+                                "type": "number",
+                                "nullable": true
+                              },
+                              "Credit": {
+                                "type": "number",
+                                "nullable": true
+                              },
+                              "Balance": {
+                                "type": "number",
+                                "nullable": true
+                              },
+                              "Id": {
+                                "type": "string",
+                                "format": "uuid"
+                              }
+                            },
+                            "required": [
+                              "Balance",
+                              "Code",
+                              "Credit",
+                              "Date",
+                              "Debit",
+                              "Description",
+                              "Id"
+                            ],
+                            "title": "Transaction"
+                          }
+                        },
+                        "TransitNumber": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "InstitutionNumber": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "Title": {
+                          "type": "string"
+                        },
+                        "AccountNumber": {
+                          "type": "string"
+                        },
+                        "Balance": {
+                          "type": "object",
+                          "properties": {
+                            "Available": {
+                              "type": "number",
+                              "nullable": true
+                            },
+                            "Current": {
+                              "type": "number",
+                              "nullable": true
+                            },
+                            "Limit": {
+                              "type": "number",
+                              "nullable": true
+                            }
+                          },
+                          "required": [
+                            "Available",
+                            "Current",
+                            "Limit"
+                          ],
+                          "title": "Balance"
+                        },
+                        "Category": {
+                          "type": "string"
+                        },
+                        "Type": {
+                          "type": "string"
+                        },
+                        "Currency": {
+                          "type": "string"
+                        },
+                        "Holder": {
+                          "type": "object",
+                          "properties": {
+                            "Name": {
+                              "type": "string"
+                            },
+                            "Address": {
+                              "type": "object",
+                              "properties": {
+                                "CivicAddress": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "City": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "Province": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "PostalCode": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "POBox": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "Country": {
+                                  "type": "string",
+                                  "nullable": true
+                                }
+                              },
+                              "required": [
+                                "City",
+                                "CivicAddress",
+                                "Country",
+                                "POBox",
+                                "PostalCode",
+                                "Province"
+                              ],
+                              "title": "Address"
+                            },
+                            "Email": {
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "PhoneNumber": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          },
+                          "required": [
+                            "Address",
+                            "Email",
+                            "Name",
+                            "PhoneNumber"
+                          ],
+                          "title": "Holder"
+                        },
+                        "Id": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "OverdraftLimit": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "AccountNumber",
+                        "Balance",
+                        "Category",
+                        "Currency",
+                        "Holder",
+                        "Id",
+                        "InstitutionNumber",
+                        "Title",
+                        "Transactions",
+                        "TransitNumber",
+                        "Type"
+                      ],
+                      "title": "Account"
+                    }
+                  },
+                  "Login": {
+                    "type": "object",
+                    "properties": {
+                      "Username": {
+                        "type": "string"
+                      },
+                      "IsScheduledRefresh": {
+                        "type": "boolean"
+                      },
+                      "LastRefresh": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "Type": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "Id": {
+                        "type": "string",
+                        "format": "uuid"
+                      }
+                    },
+                    "required": [
+                      "Id",
+                      "IsScheduledRefresh",
+                      "LastRefresh",
+                      "Type",
+                      "Username"
+                    ],
+                    "title": "Login"
+                  },
+                  "Institution": {
+                    "type": "string"
+                  },
+                  "RequestId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Tag": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "Accounts",
+                  "HttpStatusCode",
+                  "Institution",
+                  "Login",
+                  "RequestId",
+                  "ResponseType",
+                  "Tag"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/webhooks/plaid/assets-product-ready": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "webhook_type": {
+                    "type": "string"
+                  },
+                  "webhook_code": {
+                    "type": "string"
+                  },
+                  "asset_report_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "webhook_type",
+                  "webhook_code",
+                  "asset_report_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/webhooks/plaid/assets-error": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "webhook_type": {
+                    "type": "string"
+                  },
+                  "webhook_code": {
+                    "type": "string"
+                  },
+                  "error": {
+                    "type": "object",
+                    "nullable": true,
+                    "properties": {
+                      "error_type": {
+                        "type": "string"
+                      },
+                      "error_code": {
+                        "type": "string"
+                      },
+                      "error_message": {
+                        "type": "string"
+                      },
+                      "display_message": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "request_id": {
+                        "type": "string"
+                      },
+                      "causes": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "status": {
+                        "type": "number",
+                        "nullable": true
+                      },
+                      "documentation_url": {
+                        "type": "string"
+                      },
+                      "suggested_action": {
+                        "type": "string",
+                        "nullable": true
+                      }
+                    },
+                    "required": [
+                      "error_type",
+                      "error_code",
+                      "error_message",
+                      "display_message"
+                    ]
+                  },
+                  "asset_report_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "webhook_type",
+                  "webhook_code",
+                  "error",
+                  "asset_report_id"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/webhooks/plaid/item": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/user/auth/biometrics/create": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "deviceUUID": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "deviceUUID"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "token"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/auth/biometrics/exchange": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "biometricToken": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "biometricToken"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "customToken": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "customToken"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": [],
+      "cookieAuth": [],
+      "cookieAuthHeader": []
+    }
+  ]
+}
