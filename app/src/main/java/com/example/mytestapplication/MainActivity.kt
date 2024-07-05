@@ -12,15 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mytestapplication.ui.theme.MyTestApplicationTheme
-import org.openapitools.client.models.Def12
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        Def12
-
         setContent {
             MyTestApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

@@ -1,11 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    id(libs.plugins.kotlin.plugin.serialization.get().pluginId) version
-            libs.plugins.kotlin.plugin.serialization.get().version.toString()
-    id(libs.plugins.kotlin.parcelize.get().pluginId)
-    id(libs.plugins.google.services.get().pluginId)
-    id(libs.plugins.firebase.crashlytics.get().pluginId)
+    alias(libs.plugins.jetbrains.kotlin.android)
     id(libs.plugins.devtools.ksp.get().pluginId) version
             libs.plugins.devtools.ksp.get().version.toString()
     alias(libs.plugins.openapi.generator)
@@ -38,11 +33,6 @@ android {
             )
         }
     }
-    sourceSets {
-        getByName("main") {
-            java.srcDir("${layout.buildDirectory.get()}/generated/open-api")
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -52,10 +42,9 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.kotlin.compiler.extension.get()
+        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
@@ -90,52 +79,24 @@ openApiGenerate {
 
 dependencies {
 
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.appcompat.resources)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.biometric)
-    implementation(libs.androidx.cardview)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.constraint.layout)
-    implementation(libs.play.integrity)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.coil.kt.compose)
-    implementation(libs.timber)
-    implementation(libs.koin.android)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
     implementation(platform(libs.retrofit2.retrofit.bom))
     implementation(libs.retrofit2.converter.moshi)
     implementation(libs.retrofit2.converter.scalars)
     implementation(platform(libs.okhttp3.okhttp.bom))
-    implementation(libs.okhttp3.okhttp)
-    implementation(libs.okhttp3.logging.interceptor)
-    implementation(libs.squareup.moshi)
-    implementation(libs.squareup.moshi.kotlin)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.bundles.firebase)
-    //    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
-//    ksp(libs.squareup.moshi.kotlin.codegen)
+    ksp(libs.squareup.moshi.kotlin.codegen)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    androidTestImplementation(libs.koin.test.junit4)
-    androidTestImplementation(libs.koin.android.test)
-    androidTestImplementation(libs.androidx.junit.ktx)
-    androidTestImplementation(libs.androidx.test.core)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.androidx.test.rules)
-    debugImplementation(libs.androidx.compose.ui.test.manifest)
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.tooling.preview)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }
