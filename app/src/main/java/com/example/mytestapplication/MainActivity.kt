@@ -19,8 +19,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        Def12
-
         setContent {
             MyTestApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
