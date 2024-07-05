@@ -33,6 +33,11 @@ android {
             )
         }
     }
+    sourceSets {
+        getByName("main") {
+            java.srcDir("${layout.buildDirectory.get()}/generated/open-api")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
