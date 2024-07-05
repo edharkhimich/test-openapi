@@ -1,8 +1,8 @@
 {
   "project_info": {
     "project_number": "202124928772",
-    "project_id": "development-earna",
-    "storage_bucket": "development-earna.appspot.com"
+    "project_id": "development-example",
+    "storage_bucket": "development-example.appspot.com"
   },
   "client": [
     {

@@ -37,9 +37,9 @@
       "def-1": {
         "type": "string",
         "enum": [
-          "earna-1",
-          "earna-2",
-          "earna-3"
+          "example-1",
+          "example-2",
+          "example-3"
         ],
         "title": "credit-cards-schema"
       },
